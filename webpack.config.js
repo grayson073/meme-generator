@@ -1,4 +1,5 @@
 const { resolve } = require('path');
+const CleanPlugin = require('clean-webpack-plugin');
 
 const buildDir = 'docs';
 const path = resolve(__dirname, buildDir);
@@ -18,4 +19,8 @@ module.exports = {
   devServer: {
     contentBase: `./${buildDir}`
   },
+  plugins: [
+    // add plugins
+    new CleanPlugin(`${path}/budle.*.js`),
+  ]
 }
