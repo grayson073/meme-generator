@@ -41,6 +41,7 @@ module.exports = {
                   // browsers: ['last 2 versions', 'safari >= 7'] << options to customize
                 },
               }],
+              'react',
             ],
               plugins: [
                 require('babel-plugin-transform-object-rest-spread'),
