@@ -1,0 +1,14 @@
+:local(.app) {
+
+  h2 {
+    
+    font-size: 24px;
+    text-shadow: 2px 2px 3px white;
+  }
+  
+  .cow-say {
+    color: white;
+    font-size: 20px;
+  }
+
+}
