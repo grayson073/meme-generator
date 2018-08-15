@@ -1,14 +1,21 @@
 :local(.app) {
 
+  #background {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    width: 700px;
+    height: 500px;
+  }
+
   h2 {
-    
     font-size: 24px;
+    text-align: center;
     text-shadow: 2px 2px 3px white;
   }
-  
-  .cow-say {
-    color: white;
-    font-size: 20px;
+
+  input {
+    margin: 15px;
   }
 
 }
