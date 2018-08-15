@@ -1,3 +1,4 @@
+/* eslint-env node */
 const { resolve } = require('path');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
@@ -50,6 +51,28 @@ module.exports = {
               cacheDirectory: true
           }
         }
+      },
+
+      // css
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: { sourceMap: true }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: { sourceMap: true }
+          }
+        ]
       }
     ]
   }

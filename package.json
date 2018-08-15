@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/grayson073/meme-generator#readme",
   "devDependencies": {
+    "autoprefixer": "^9.1.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
@@ -29,9 +30,14 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-react": "^7.11.1",
     "html-webpack-plugin": "^3.2.0",
+    "postcss-import": "^12.0.0",
+    "postcss-loader": "^3.0.0",
+    "precss": "^3.1.2",
+    "style-loader": "^0.22.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   },
