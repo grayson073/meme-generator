@@ -8,7 +8,7 @@ class App extends Component {
   state = {
     headerContent: 'HEYYYYY',
     footerContent: '!!!!!!!',
-    url: 'np'
+    url: 'https://www.veterantv.com/wp-content/uploads/2017/08/f5d784aa1eabbde15ba5e2d90c3ba828.jpg'
   };
 
   handleMemeChoose = (url = '') => {
