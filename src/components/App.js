@@ -5,17 +5,26 @@ import styles from './App.css';
 class App extends Component {
 
   state = {
-    content: 'This is a meme header',
+    headerContent: 'Enter a meme header',
+    footerContent: 'Enter a meme footer',
     url: 'https://i.redd.it/awfefcu0c9g11.jpg'
   };
 
-  handleBackgroundChoose = (url = '') => {
+  handleMemeChoose = (url = '') => {
     this.setState({ url });
+  }
+
+  handleHeaderChange = (headerContent = '') => {
+    this.setState({ headerContent });
+  }
+
+  handleFooterChange = (footerContent = '') => {
+    this.setState({ footerContent });
   }
 
   render() {
 
-    const { content, url } = this.state;
+    const { headerContent, footerContent, url } = this.state;
 
     return (
       <main className={styles.app}>
@@ -24,8 +33,13 @@ class App extends Component {
         </section>
 
         <section>
-          <Background url={url} onChoose={this.handleBackgroundChoose}/>
-          <Meme content={content} url={url} onChange={this.handleContentChange}/>
+          <Header headerContent={headerContent} onChange={this.handleHeaderChange}/>
+          <Footer footerContent={footerContent} onChange={this.handleFooterChange}/>
+          <Background url={url} onChoose={this.handleMemeChoose}/>
+        </section>
+
+        <section>
+          <Meme url={url} headerContent={headerContent} footerContent={footerContent}/>
         </section>
       </main>
     );
@@ -34,14 +48,18 @@ class App extends Component {
 
 
 
-function Meme({ url }) {
+function Meme({ url, headerContent, footerContent }) {
 
   return (
     <Fragment>
-      <div id="background" style={{ background:`url(${url}) no-repeat`}}></div>
+      <div id="background" style={{ background:`url(${url}) no-repeat`}}>
+        <div id="headerContent">{headerContent}</div>
+        <div id="footerContent">{footerContent}</div>
+      </div>
     </Fragment>
   );
 }
+
 
 function Background({ url, onChoose }) {
   return (
@@ -57,9 +75,21 @@ function Background({ url, onChoose }) {
   )
 }
 
-function headerContent({ content, onChange }) {
+function Header({ headerContent, onChange }) {
   return (
-    <input value={content} onChange={({ target }) => onChange(target.value)}/>
+    <label>
+      Meme header:<br/>
+      <input size="75" value={headerContent} onChange={({ target }) => onChange(target.value)}/><br/>
+    </label>
+  );
+}
+
+function Footer({ footerContent, onChange }) {
+  return (
+    <label>
+      Meme Footer:<br/>
+      <input size="75" value={footerContent} onChange={({ target }) => onChange(target.value)}/><br/>
+    </label>
   );
 }
 
