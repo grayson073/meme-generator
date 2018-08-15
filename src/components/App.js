@@ -1,26 +1,35 @@
 import React, { Component, Fragment } from 'react';
-import cowsay from 'cowsay-browser';
+import dom2image from 'dom-to-image';
+import fileSaver from 'file-saver';
 import styles from './App.css';
 
 class App extends Component {
 
   state = {
-    headerContent: 'Enter a meme header',
-    footerContent: 'Enter a meme footer',
-    url: 'https://i.redd.it/awfefcu0c9g11.jpg'
+    headerContent: 'HEYYYYY',
+    footerContent: '!!!!!!!',
+    url: 'https://www.veterantv.com/wp-content/uploads/2017/08/f5d784aa1eabbde15ba5e2d90c3ba828.jpg'
   };
 
   handleMemeChoose = (url = '') => {
     this.setState({ url });
-  }
+  };
 
   handleHeaderChange = (headerContent = '') => {
     this.setState({ headerContent });
-  }
+  };
 
   handleFooterChange = (footerContent = '') => {
     this.setState({ footerContent });
-  }
+  };
+
+  handleExport = () => {
+    const meme = document.getElementById('background');
+    dom2image.toBlob(meme)
+      .then(blob => {
+        fileSaver.saveAs(blob, 'super-meme.png');
+      });
+  };
 
   render() {
 
@@ -39,27 +48,15 @@ class App extends Component {
         </section>
 
         <section>
+          <p>
+            <button onClick={this.handleExport}>Save Meme!</button>
+          </p>
           <Meme url={url} headerContent={headerContent} footerContent={footerContent}/>
         </section>
       </main>
     );
   }
 }
-
-
-
-function Meme({ url, headerContent, footerContent }) {
-
-  return (
-    <Fragment>
-      <div id="background" style={{ background:`url(${url}) no-repeat`}}>
-        <div id="headerContent">{headerContent}</div>
-        <div id="footerContent">{footerContent}</div>
-      </div>
-    </Fragment>
-  );
-}
-
 
 function Background({ url, onChoose }) {
   return (
@@ -90,6 +87,18 @@ function Footer({ footerContent, onChange }) {
       Meme Footer:<br/>
       <input size="75" value={footerContent} onChange={({ target }) => onChange(target.value)}/><br/>
     </label>
+  );
+}
+
+function Meme({ url, headerContent, footerContent }) {
+
+  return (
+    <Fragment>
+      <div id="background" style={{ background:`url(${url}) no-repeat`}}>
+        <div id="headerContent">{headerContent}</div>
+        <div id="footerContent">{footerContent}</div>
+      </div>
+    </Fragment>
   );
 }
 

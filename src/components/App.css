@@ -3,19 +3,25 @@
   #background {
     font-size: 30px;
     text-align: center;
-    color: white;
-    width: 700px;
+    width: 750px;
     height: 500px;
+    flex-flow: row wrap;
+    justify-content: center;
+    
   }
 
   h2 {
     font-size: 24px;
-    text-align: center;
     text-shadow: 2px 2px 3px white;
   }
 
   input {
     margin: 15px;
+  }
+
+  #footerContent {
+    margin-top: 50%;
+    text-align: center;
   }
 
 }
