@@ -69,7 +69,7 @@ function Background({ url, onChoose }) {
         reader.onload = () => onChoose(reader.result);
       }}/>
     </label>
-  )
+  );
 }
 
 function Header({ headerContent, onChange }) {
@@ -94,7 +94,7 @@ function Meme({ url, headerContent, footerContent }) {
 
   return (
     <Fragment>
-      <div id="background" style={{ background:`url(${url}) no-repeat`}}>
+      <div id="background" style={{ background:`url(${url}) no-repeat` }}>
         <div id="headerContent">{headerContent}</div>
         <div id="footerContent">{footerContent}</div>
       </div>

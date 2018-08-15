@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     // add plugins
-    new CleanPlugin(`${path}/budle.*.js`),
+    new CleanPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({ template: './src/index.html' })
   ],
   module: {
@@ -44,11 +44,11 @@ module.exports = {
               }],
               'react',
             ],
-              plugins: [
-                require('babel-plugin-transform-object-rest-spread'),
-                require('babel-plugin-transform-class-properties')
-              ],
-              cacheDirectory: true
+            plugins: [
+              require('babel-plugin-transform-object-rest-spread'),
+              require('babel-plugin-transform-class-properties')
+            ],
+            cacheDirectory: true
           }
         }
       },
@@ -85,4 +85,4 @@ module.exports = {
       }
     ]
   }
-}
+};
